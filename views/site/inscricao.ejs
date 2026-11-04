@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inscrição — Arena Jiu-Jitsu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /><link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <header class="site-header"><div class="container header-inner"><a class="brand" href="/site"><span class="brand-mark"><span>JJ</span></span><span class="brand-name">ARENA <small>JIU-JITSU</small></span></a><nav class="main-nav"><a href="/site">Início</a><a class="active" href="/site#campeonatos">Campeonatos</a><a href="/site/campeonato#atletas">Atletas</a></nav><a class="header-action" href="/site/login">Entrar</a></div></header>
+    <main><section class="registration-page"><div class="container">
+      <a class="back-link dark" href="/site/campeonato">← VOLTAR AOS DETALHES</a>
+      <div class="registration-layout">
+        <div class="registration-content">
+          <span class="kicker">GARANTA SUA VAGA</span><h1>INSCRIÇÃO DO ATLETA</h1>
+          <p class="form-intro">Preencha seus dados com atenção. As informações serão usadas para definir sua categoria e chaveamento.</p>
+          <form action="/site/sucesso" method="get">
+            <div class="form-section-title"><span>01</span><div><h2>CAMPEONATO E CATEGORIA</h2><p>Selecione onde você vai competir.</p></div></div>
+            <div class="form-grid">
+              <label class="form-field full"><span>CAMPEONATO</span><select name="campeonato" required><option>São Paulo Open Jiu-Jitsu — São Paulo, SP</option><option>Rio Grand Slam 2025 — Rio de Janeiro, RJ</option></select></label>
+              <label class="form-field full"><span>CATEGORIA (FAIXA / PESO / ANO)</span><select name="categoria" required><option>Branca • Leve — até 76kg • Adulto</option><option>Azul • Médio — até 82,3kg • Adulto</option><option>Roxa • Meio-pesado — até 88,3kg • Adulto</option></select></label>
+            </div>
+            <div class="form-section-title"><span>02</span><div><h2>DADOS DO ATLETA</h2><p>Conte para nós quem vai subir no tatame.</p></div></div>
+            <div class="form-grid">
+              <label class="form-field full"><span>NOME COMPLETO DO ATLETA</span><input type="text" name="nome" placeholder="Digite seu nome completo" required /></label>
+              <label class="form-field"><span>DATA DE NASCIMENTO</span><input type="date" name="nascimento" required /></label>
+              <label class="form-field"><span>EQUIPE</span><select name="equipe" required><option value="">Selecione sua equipe</option><option>Alliance Jiu-Jitsu</option><option>Checkmat</option><option>Gracie Barra</option><option>Dream Art</option></select></label>
+              <label class="form-field full"><span>FOTO DO ATLETA</span><input class="native-file-input" id="foto" type="file" name="foto" accept="image/jpeg,image/png" /><span class="upload-area"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 15v4h14v-4"/></svg><span><strong>SELECIONE SUA FOTO NO CAMPO DE ARQUIVO</strong><small>JPG ou PNG, máximo 5MB</small></span></span></label>
+            </div>
+            <div class="submit-row"><div><span class="status-badge pending"><i></i>STATUS INICIAL: PENDENTE</span><small>A inscrição será confirmada após análise.</small></div><button class="button-primary submit-button" type="submit">ENVIAR INSCRIÇÃO <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          </form>
+        </div>
+        <aside class="registration-summary">
+          <div class="summary-image" style="background-image:url('https://images.unsplash.com/photo-1747331796135-0e2354a712e4?auto=format&fit=crop&w=900&q=85')"><span>RESUMO DA INSCRIÇÃO</span></div>
+          <div class="summary-body"><h2>São Paulo Open Jiu-Jitsu</h2><p class="summary-line">24 de maio, 2025</p><p class="summary-line">São Paulo, SP</p><hr /><small>CATEGORIA INICIAL</small><strong>Branca • Leve — até 76kg</strong><p>Adulto • 2007 ou anterior</p><hr /><div class="secure-info"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.7c0 4.3 3 7.3 7.5 9.3 4.5-2 7.5-5 7.5-9.3V6L12 3Z"/></svg><span><strong>INSCRIÇÃO SEGURA</strong><small>Seus dados estão protegidos.</small></span></div></div>
+        </aside>
+      </div>
+    </div></section></main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="/site">
+      <span class="brand-mark"><span>JJ</span></span><span class="brand-name">ARENA <small>JIU-JITSU</small></span></a><p>O tatame conecta. A competição transforma.</p><span>© 2025 Arena Jiu-Jitsu</span></div></footer>
+  </body>
+</html>

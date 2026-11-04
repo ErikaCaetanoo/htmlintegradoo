@@ -1,0 +1,112 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Campeonato</h1>
+
+<a href="/campeonato/lst">
+    Voltar para lista
+</a>
+
+<br><br>
+
+<form
+    method="post"
+    action="/campeonato/edt/<%= Campeonato._id %>"
+>
+
+    <label>Nome do Evento:</label>
+
+    <input
+        type="text"
+        name="nomeEve"
+        value="<%= Campeonato.nomeEve %>"
+        required
+    >
+
+    <br><br>
+
+    <label>Cidade:</label>
+
+    <input
+        type="text"
+        name="cidade"
+        value="<%= Campeonato.cidade %>"
+        required
+    >
+
+    <br><br>
+
+    <label>Data:</label>
+
+    <input
+        type="date"
+        name="dataEve"
+        value="<%= Campeonato.dataEve.toISOString().split('T')[0] %>"
+        required
+    >
+
+    <br><br>
+
+    <label>Organizador:</label>
+
+    <input
+        type="text"
+        name="organizador"
+        value="<%= Campeonato.organizador %>"
+        required
+    >
+
+    <br><br>
+
+    <label>Categorias:</label>
+
+    <% categorias.forEach(categoria => { %>
+
+        <div>
+
+            <input
+                type="checkbox"
+                name="categorias"
+                value="<%= categoria %>"
+                <%= Campeonato.categorias.includes(categoria) ? 'checked' : '' %>
+            >
+
+            <label>
+                <%= categoria %>
+            </label>
+
+        </div>
+
+    <% }) %>
+
+    <br>
+
+    <label>Atletas inscritos:</label>
+
+    <% atletas.forEach(atleta => { %>
+
+        <div>
+
+            <input
+                type="checkbox"
+                name="atletas"
+                value="<%= atleta._id %>"
+                <%= Campeonato.atletas.includes(atleta._id) ? 'checked' : '' %>
+            >
+
+            <label>
+                <%= atleta.nome %>
+            </label>
+
+        </div>
+
+    <% }) %>
+
+    <br>
+
+    <button type="submit">
+        Salvar alterações
+    </button>
+
+</form>
+
+<%- include('../rodape.ejs') %>

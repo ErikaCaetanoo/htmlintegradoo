@@ -1,0 +1,79 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Adicionar Campeonato</h1>
+
+<div>
+    <a href="/campeonato/lst">Listar Campeonatos</a>
+</div>
+
+<br>
+
+<form method="post" action="/campeonato/add">
+
+    <label>Nome do Evento:</label>
+    <input type="text" name="nomeEve" required>
+
+    <br><br>
+
+    <label>Cidade:</label>
+    <input type="text" name="cidade" required>
+
+    <br><br>
+
+    <label>Data do Evento:</label>
+    <input type="date" name="dataEve" required>
+
+    <br><br>
+
+    <label>Organizador:</label>
+    <input type="text" name="organizador" required>
+
+    <br><br>
+
+    <label>Categorias:</label>
+
+    <% categorias.forEach(categoria => { %>
+
+        <div>
+            <input
+                type="checkbox"
+                name="categorias"
+                value="<%= categoria %>"
+            >
+
+            <label>
+                <%= categoria %>
+            </label>
+        </div>
+
+    <% }) %>
+
+    <br>
+
+    <label>Atletas inscritos:</label>
+
+    <% atletas.forEach(atleta => { %>
+
+        <div>
+            <input
+                type="checkbox"
+                name="atletas"
+                value="<%= atleta._id %>"
+            >
+
+            <label>
+                <%= atleta.nome %>
+            </label>
+        </div>
+
+    <% }) %>
+
+    <br>
+
+    <button type="submit">
+        Cadastrar Campeonato
+    </button>
+
+</form>
+
+<%- include('../rodape.ejs') %>

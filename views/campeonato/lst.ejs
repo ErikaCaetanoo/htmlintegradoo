@@ -1,0 +1,103 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Campeonatos</h1>
+
+<form action="/campeonato/lst" method="post">
+
+    <input
+        type="text"
+        name="filtro"
+        placeholder="Pesquisar campeonato"
+    >
+
+    <button type="submit">
+        Pesquisar
+    </button>
+
+</form>
+
+<br>
+
+<a href="/campeonato/add">
+    + Novo Campeonato
+</a>
+
+<br><br>
+
+<table border="1">
+
+    <tr>
+        <th>Nome do Evento</th>
+        <th>Cidade</th>
+        <th>Data</th>
+        <th>Organizador</th>
+        <th>Categorias</th>
+        <th>Atletas inscritos</th>
+        <th>Ações</th>
+    </tr>
+
+    <% for (const campeonato of Campeonatos) { %>
+
+        <tr>
+
+            <td>
+                <%= campeonato.nomeEve %>
+            </td>
+
+            <td>
+                <%= campeonato.cidade %>
+            </td>
+
+            <td>
+                <%= campeonato.dataEve.toISOString().split('T')[0] %>
+            </td>
+
+            <td>
+                <%= campeonato.organizador %>
+            </td>
+
+            <td>
+                <%= campeonato.categorias.join(', ') %>
+            </td>
+
+            <td>
+
+                <% if (campeonato.atletas.length === 0) { %>
+
+                    Nenhum atleta
+
+                <% } else { %>
+
+                    <% campeonato.atletas.forEach(atleta => { %>
+
+                        <div>
+                            <%= atleta.nome %>
+                        </div>
+
+                    <% }) %>
+
+                <% } %>
+
+            </td>
+
+            <td>
+
+                <a href="/campeonato/edt/<%= campeonato._id %>">
+                    Editar
+                </a>
+
+                |
+
+                <a href="/campeonato/del/<%= campeonato._id %>">
+                    Excluir
+                </a>
+
+            </td>
+
+        </tr>
+
+    <% } %>
+
+</table>
+
+<%- include('../rodape.ejs') %>

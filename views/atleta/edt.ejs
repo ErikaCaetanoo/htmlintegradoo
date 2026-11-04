@@ -1,0 +1,115 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Atleta</h1>
+
+<a href="/atleta/lst">
+    Voltar para lista
+</a>
+
+<br><br>
+
+<form
+    action="/atleta/edt/<%= Atleta._id %>"
+    method="post"
+    enctype="multipart/form-data"
+>
+
+    <label>Nome:</label>
+
+    <input
+        type="text"
+        name="nome"
+        value="<%= Atleta.nome %>"
+        required
+    >
+
+    <br><br>
+
+    <label>Data de nascimento:</label>
+
+    <input
+        type="date"
+        name="dataNasc"
+        value="<%= Atleta.dataNasc.toISOString().split('T')[0] %>"
+        required
+    >
+
+    <br><br>
+
+    <label>Equipe:</label>
+
+<select name="equipe" required>
+
+    <option value="">
+        Selecione uma equipe
+    </option>
+
+    <option
+        value="Gracie Bagé"
+        <%= Atleta.equipe === 'Gracie Bagé' ? 'selected' : '' %>
+    >
+        Gracie Bagé
+    </option>
+
+    <option
+        value="Nova União"
+        <%= Atleta.equipe === 'Nova União' ? 'selected' : '' %>
+    >
+        Nova União
+    </option>
+
+    <option
+        value="Alliance"
+        <%= Atleta.equipe === 'Alliance' ? 'selected' : '' %>
+    >
+        Alliance
+    </option>
+
+    <option
+        value="Checkmat"
+        <%= Atleta.equipe === 'Checkmat' ? 'selected' : '' %>
+    >
+        Checkmat
+    </option>
+
+    <option
+        value="Outra"
+        <%= Atleta.equipe === 'Outra' ? 'selected' : '' %>
+    >
+        Outra
+    </option>
+
+</select>
+
+    <br><br>
+
+    <% if (Atleta.foto) { %>
+
+        <p>Foto atual:</p>
+
+        <img
+            src="<%= Atleta.foto %>"
+            width="150"
+        >
+
+        <br><br>
+
+    <% } %>
+
+    <label>Alterar foto:</label>
+
+    <input
+        type="file"
+        name="foto"
+        accept="image/*"
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Salvar alterações
+    </button>
+
+</form>
+
+<%- include('../rodape.ejs') %>
