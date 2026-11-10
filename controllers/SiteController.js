@@ -8,7 +8,7 @@ export default class SiteController {
           const campeonatos = await Campeonato
             .find({})
             .sort({ dataEve: 1 })
-            .limit(3);
+            .limit(50);
 
           res.render('site/index', { campeonatos });
         };
