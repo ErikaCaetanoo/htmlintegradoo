@@ -1,8 +1,10 @@
 import express from 'express';
+import multer from 'multer';
 const router = express.Router();
 //Busca o AlunoController
 import SiteController from '../controllers/SiteController.js'
 const controle = new SiteController();
+const upload = multer({ storage: multer.memoryStorage() });
 
 const caminhobase = 'site/'
 
@@ -16,7 +18,9 @@ router.get('/site/sucesso.html', controle.sucesso)
 router.get('/' + caminhobase, controle.home)
 router.get('/' + caminhobase + 'login', controle.login)
 router.get('/' + caminhobase + 'campeonato', controle.campeonato)
+router.get('/' + caminhobase + 'campeonato/:id', controle.campeonato)
 router.get('/' + caminhobase + 'inscricao', controle.inscricao)
+router.post('/' + caminhobase + 'inscricao', upload.single('foto'), controle.registrar)
 router.get('/' + caminhobase + 'sucesso', controle.sucesso)
 
 // Compatibilidade com os links estáticos das páginas públicas

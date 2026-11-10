@@ -16,6 +16,10 @@ const Atleta = conexao.Schema({
         required: true
     },
 
+    categoria: {
+        type: String
+    },
+
     foto: {
         type: Buffer,
         get: (valor) => {
